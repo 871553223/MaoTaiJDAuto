@@ -193,6 +193,7 @@ class Jd_Mask_Spider(object):
             if len(resp.text) >= 100:
                 break
             else:
+            #会出现多种错误码，如{"isLogin":-1},这种就应该退出了，不然会一直轮训下去
                 sleep(0.01)
         print(resp)
         return parse_json(resp.text)
